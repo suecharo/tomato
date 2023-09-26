@@ -1,0 +1,25 @@
+# version: "3"
+version: "3.7"
+services:
+  public_db:
+    image: denoland/deno:debian
+    working_dir: /app
+    volumes:
+      - ${PWD}/tomato-data-public:/app/tomato-data-public
+    ports:
+      - 127.0.0.1:8080:8080
+    # entrypoint: [ "tini", "--" ]
+    init: true
+    command: [ "sleep", "infinity" ]
+  # local_db:
+  cli:
+    image: denoland/deno:debian
+    working_dir: /app
+    volumes:
+      - ${PWD}/cli:/app/cli
+      - ${PWD}/tomato-data-local:/app/tomato-data-local
+    environment:
+      TOMATO_DATA: /app/tomato-data-local
+    # entrypoint: [ "tini", "--" ]
+    init: true
+    command: [ "sleep", "infinity" ]
