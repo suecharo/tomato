@@ -1,31 +1,32 @@
-import { args } from "./mod.ts";
-import { colors, command } from "./deps.ts";
+import { args, commands } from "./mod.ts";
+import { colors } from "./deps.ts";
 
-function main(): Promise<void> {
+async function main(): Promise<void> {
   try {
     const parsedArgs = args.parseArgs(Deno.args);
-    const command = parsedArgs.command;
-    switch (command) {
-      case "init":
-        break;
-      case "fetch":
-        // do something
-        break;
-      case "config":
-        // do something
-        break;
-      case "add":
-        // do something
-        break;
-      case "rm":
-        // do something
-        break;
-      case "ls":
-        // do something
-        break;
-      default:
-        throw new Error(`Unknown command: ${command}`);
-    }
+    // const command = parsedArgs.command;
+    // switch (command) {
+    //   case "init":
+    //     await commands.init();
+    //     break;
+    //   case "fetch":
+    //     await commands.fetch();
+    //     break;
+    //   case "config":
+    //     await commands.config();
+    //     break;
+    //   case "add":
+    //     await commands.add();
+    //     break;
+    //   case "rm":
+    //     await commands.rm();
+    //     break;
+    //   case "ls":
+    //     await commands.ls();
+    //     break;
+    //   default:
+    //     throw new Error(`Unknown command: ${command}`);
+    // }
   } catch (err) {
     console.error(`${colors.red("Error occurred!")}: ${err.message}`);
     Deno.exit(1);

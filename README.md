@@ -24,19 +24,25 @@ docker compose -f docker-compose.dev.yml exec cli bash
 
 subcommands:
 
-- `tomato init`
 - `tomato add`
 - `tomato rm`
   remove file (--only-index)
 - `tomato ls`
-- `tomato config`
-- `tomato help`
 - `tomato fetch`
   - stream
-- `tomato version`
+
+---
+
+- `tomato init`
+- `tomato config`
 - 考え中
   - `tomato status`
   - `tomato sync`
   - `tomato pull`
   - `tomato push`
   - `tomato serve`
+    - minio pattern (URL)
+  - `auth`
+    - or web app でやる
+
+---
